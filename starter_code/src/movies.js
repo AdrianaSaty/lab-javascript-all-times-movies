@@ -31,13 +31,12 @@ function ratesAverage(movies){
     let avarage = JSON.parse(JSON.stringify(movies));
     let index = 0;
     var sum = movies.reduce(function(accumulator, num){
-      num.rate = parseFloat(num.rate);
       index ++;
       return (accumulator + num.rate);
     },0 );
 
-    console.log((sum/index).toFixed(2));
-    return (sum/index).toFixed(2);
+    result = (sum/index).toFixed(2);
+    return parseFloat(result);
 }
 
 ratesAverage(movies)
