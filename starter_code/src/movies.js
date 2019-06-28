@@ -28,14 +28,12 @@ function turnHoursToMinutes(movies){
 
 // Get the average of all rates with 2 decimals 
 function ratesAverage(movies){
-    let avarage = JSON.parse(JSON.stringify(movies));
-    let index = 0;
     var sum = movies.reduce(function(accumulator, num){
-      index ++;
+      num.rate = parseFloat(num.rate);
+
       return (accumulator + num.rate);
     },0 );
-
-    result = (sum/index).toFixed(2);
+    result = (sum/(movies.length)).toFixed(2);
     return parseFloat(result);
 }
 
