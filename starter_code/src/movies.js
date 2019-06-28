@@ -28,21 +28,39 @@ function turnHoursToMinutes(movies){
 
 // Get the average of all rates with 2 decimals 
 function ratesAverage(movies){
-    let avarage = JSON.parse(JSON.stringify(movies));
     let index = 0;
     var sum = movies.reduce(function(accumulator, num){
       index ++;
-      return (accumulator + num.rate);
+      return accumulator + parseFloat(num.rate);
     },0 );
 
-    result = (sum/index).toFixed(2);
+    let result = (sum/index).toFixed(2);
     return parseFloat(result);
 }
 
-ratesAverage(movies)
+
 
 // Get the average of Drama Movies
+function dramaMoviesRate(movies){
+    let index = 0;
 
+    var arrayGenre = movies.filter(function(num){
+        return (num.genre).indexOf("Drama") !== -1;
+    });
+
+
+
+    // var sum = movies.reduce(function(accumulator, num){
+    //     if((num.rate) !== undefined){ 
+    //         index ++;
+    //         num.rate = parseFloat(num.rate)
+    //         return accumulator + num.rate;
+    //     }
+    //   },0 );
+
+    let result = ( ratesAverage(arrayGenre)/index).toFixed(2);
+    return parseFloat(result);
+}
 
 // Order by time duration, in growing order
 
