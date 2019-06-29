@@ -28,6 +28,7 @@ function turnHoursToMinutes(movies){
 
 // Get the average of all rates with 2 decimals 
 function ratesAverage(movies){
+<<<<<<< HEAD
     let index = 0;
     var sum = movies.reduce(function(accumulator, num){
       index ++;
@@ -35,6 +36,14 @@ function ratesAverage(movies){
     },0 );
 
     let result = (sum/index).toFixed(2);
+=======
+    var sum = movies.reduce(function(accumulator, num){
+      num.rate = parseFloat(num.rate);
+
+      return (accumulator + num.rate);
+    },0 );
+    result = (sum/(movies.length)).toFixed(2);
+>>>>>>> f1fcf6c43158035270db79109b9b285e062895ba
     return parseFloat(result);
 }
 
